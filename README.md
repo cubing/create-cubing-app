@@ -2,6 +2,8 @@
 
 This is a template project for project using `cubing.js` with `node` and `npm`. In an editor like VSCode, this will give you nice imports, autocompletions, and other TypeScript benefits.
 
+See <https://js.cubing.net/cubing/> for (in-progress) documentation on `cubing.js`. If you think you have any issues, don't hesitate to [file an issue here](https://github.com/cubing/cubing.js/issues/new/choose).
+
 ## Getting started
 
 Make sure `node` is installed first (which will also install `npm`): <https://nodejs.org/en/download/>
