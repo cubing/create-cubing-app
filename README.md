@@ -27,8 +27,12 @@ The site will be built to the `dist/src` folder, ready to place onto any static 
 
 ## Getting the latest version of `cubing.js`
 
-To update `cubing.js` to the latest version, run:
+See <https://github.com/cubing/cubing.js/releases> for information on the latest releases.
 
 ```shell
-npm install cubing
+# Check what version of `cubing.js` you have
+npm list cubing
+
+# Update to the latest
+npm install --save cubing@latest
 ```
