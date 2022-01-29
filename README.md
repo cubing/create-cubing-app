@@ -1,8 +1,10 @@
 # `cubing-app-template`
 
-This is a template project for project using `cubing.js` with `npm`. In an editor like VSCode, this will give you nice imports, autocompletions, and other TypeScript benefits.
+This is a template project for project using `cubing.js` with `node` and `npm`. In an editor like VSCode, this will give you nice imports, autocompletions, and other TypeScript benefits.
 
 ## Getting started
+
+Make sure `node` is installed first (which will also install `npm`): <https://nodejs.org/en/download/>
 
 ```shell
 # Set up the project for the first time
