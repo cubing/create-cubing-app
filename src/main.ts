@@ -9,6 +9,11 @@ class App {
     new TwistyAlgViewer({ twistyPlayer: this.twistyPlayer })
   );
   constructor() {
+    // Any of these properties could also be set directly in the HTML.
+    this.twistyPlayer.experimentalStickering = "picture";
+    this.twistyPlayer.visualization = "PG3D";
+    this.twistyPlayer.experimentalSprite = "./G2-reused-colors.png";
+
     this.updateScramble();
   }
 
