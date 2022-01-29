@@ -1,0 +1,9 @@
+/* Center everything on the page. */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: grid;
+  place-content: center;
+  gap: 1em;
+  font-family: sans-serif;
+}

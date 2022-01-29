@@ -1,0 +1,11 @@
+{
+  "name": "cubing-app-template",
+  "dependencies": {
+    "barely-a-dev-server": "^0.2.6",
+    "cubing": "^0.25.2"
+  },
+  "scripts": {
+    "build": "node -e 'import(\"barely-a-dev-server\").then(s => s.barelyServe({entryRoot: \"src\", dev: false}))'",
+    "dev": "node -e 'import(\"barely-a-dev-server\").then(s => s.barelyServe({entryRoot: \"src\"}))'"
+  }
+}
