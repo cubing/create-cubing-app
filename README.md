@@ -24,3 +24,11 @@ npm run build
 The site will be built to the `dist/src` folder, ready to place onto any static web server.
 
 (Note: the output uses module scripts, which means you can't just open the output HTML files directly in the browser. You have to use a web server. Something like `python3 -m http.server` might help if you just need to test the output locally.)
+
+## Getting the latest version of `cubing.js`
+
+To update `cubing.js` to the latest version, run:
+
+```shell
+npm install cubing
+```
