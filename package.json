@@ -6,7 +6,7 @@
     "clean": "rm -rf ./dist"
   },
   "dependencies": {
-    "cubing": "^0.28.0"
+    "cubing": "^0.28.1"
   },
   "devDependencies": {
     "barely-a-dev-server": "^0.2.6"
