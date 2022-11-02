@@ -6,9 +6,10 @@
     "clean": "rm -rf ./dist"
   },
   "dependencies": {
-    "cubing": "^0.31.0"
+    "cubing": "^0.31.6"
   },
   "devDependencies": {
-    "barely-a-dev-server": "^0.2.6"
+    "barely-a-dev-server": "^0.3.6",
+    "esbuild": "^0.15.12"
   }
 }
