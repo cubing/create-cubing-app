@@ -115,10 +115,14 @@ await execPromise("npm install --save cubing", execOptions);
 await execPromise("npm install --save-dev barely-a-dev-server", execOptions);
 
 console.log(`Your cubing app has been created.
-To work on the files in \`./src\`, run:
+To work on it, run:
 
     cd \"${projectPath.replaceAll('"', '\\"')}\"
     npm run dev
+
+Edit the files in \`src\` and open the displayed URL in browser to see changes.
+
+--------
 
 To create an optimized build of your app that can be uploaded to a file server, run:
 
