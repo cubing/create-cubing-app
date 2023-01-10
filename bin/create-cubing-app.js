@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 import { exec } from "child_process";
-import { mkdir, readFile, writeFile } from "fs/promises";
+import { mkdir, writeFile } from "fs/promises";
+import { join } from "path";
+import { exit, stderr } from "process";
+import { default as validate } from "validate-npm-package-name";
 
 function execPromise(cmd, options) {
 	return new Promise((resolve, reject) => {
@@ -14,6 +17,30 @@ function execPromise(cmd, options) {
 	});
 }
 
+function badPackageName() {
+	stderr.write(`Please specify a valid project name!
+For example:
+
+    npm create cubing-app my-cubing-project
+
+`);
+	exit(1);
+}
+const packageName = process.argv[2];
+if (!packageName) {
+	badPackageName();
+}
+const validationResults = validate(packageName);
+if (!validationResults.validForNewPackages) {
+	badPackageName();
+}
+
+const packageRoot = join(".", packageName);
+function packageRooted(path) {
+	return join(packageRoot, path);
+}
+await mkdir(packageRoot);
+
 const initialPackageJSON = {
 	scripts: {
 		build:
@@ -23,16 +50,16 @@ const initialPackageJSON = {
 	},
 };
 await writeFile(
-	"./package.json",
+	packageRooted("package.json"),
 	JSON.stringify(initialPackageJSON, null, "  "),
 );
 
-await execPromise("npm install --save cubing");
-await execPromise("npm install --save-dev barely-a-dev-server");
-
-await mkdir("./src", { recursive: true });
+const execOptions = {
+	cwd: packageRoot,
+};
+await mkdir(packageRooted("src"), { recursive: true });
 async function transferFile(rootedPath, contents) {
-	await writeFile(`./${rootedPath}`, contents);
+	await writeFile(packageRooted(rootedPath), contents);
 }
 await transferFile(
 	"src/index.html",
@@ -105,3 +132,6 @@ await transferFile(
 /node_modules
 `,
 );
+
+await execPromise("npm install --save cubing", execOptions);
+await execPromise("npm install --save-dev barely-a-dev-server", execOptions);
