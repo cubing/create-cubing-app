@@ -10,7 +10,6 @@ Make sure `node` is installed first (which will also install `npm`): <https://no
 
 ```shell
 npm create cubing-app my-cubing-project
-
 cd my-cubing-project
 npm run dev
 ```
