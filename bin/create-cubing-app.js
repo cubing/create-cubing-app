@@ -2,8 +2,9 @@
 import { exec } from "child_process";
 import { exists } from "fs";
 import { mkdir, readFile, stat, writeFile } from "fs/promises";
-import { join } from "path";
+import { join, resolve } from "path";
 import { exit, stderr } from "process";
+import { createInterface } from "readline";
 import { promisify } from "util";
 
 function execPromise(cmd, options) {
@@ -18,44 +19,62 @@ function execPromise(cmd, options) {
 	});
 }
 
-await execPromise("npm install validate-npm-package-name", {
-	cwd: new URL(".", import.meta.url),
-});
-
-function badPackageName() {
+function printHelpAndExit() {
 	stderr.write(`Usage:
 
-    npm create cubing-app <project folder name>
+npm create cubing-app <project folder name>
 
-The project folder name should consist of only letters, numbers, dashes, and underscores.
+The project folder name should consist of only letters, numbers, dashes, and u
+nderscores.
 `);
-	exit(0);
-}
-const packageName = process.argv[2];
-if (!packageName) {
-	badPackageName();
+	exit(1);
 }
 
-const validate = (await import("validate-npm-package-name")).default;
-const validationResults = validate(packageName);
-if (!validationResults.validForNewPackages) {
-	badPackageName();
+let projectPath = process.argv[2];
+if (!projectPath) {
+	const readline = createInterface({
+		input: process.stdin,
+		output: process.stdout,
+	});
+
+	projectPath = await new Promise((resolve, reject) => {
+		try {
+			readline.question(
+				`Where would you like to place the project?
+(Enter a path or name for a new folder.)
+`,
+				resolve,
+			);
+		} catch (e) {
+			reject(e);
+		} finally {
+		}
+	});
+	readline.close();
+	if (projectPath === "") {
+		console.log("Please enter a non-empty project path.");
+		exit(1);
+	}
 }
 
-const packageRoot = join(".", packageName);
-function packageRooted(path) {
-	return join(packageRoot, path);
+function projectPathed(path) {
+	return join(projectPath, path);
 }
+
+console.log(`---------------------------------
+Creating a cubing project in the following folder:
+${projectPath}
+`);
 
 // We could uses `stat` from `"fs/promises"`, but I'm not too enthused about
 // catching an error in the "expected" path. So we use `exists`.
-if (await promisify(exists)(packageRoot)) {
-	process.stderr.write(`Project already exists in the current folder: ${packageRoot}
+if (await promisify(exists)(projectPath)) {
+	process.stderr.write(`Project already exists in the current folder: ${projectPath}
 Please select a different name (or delete the existing project folder).
 `);
 	exit(1);
 }
-await mkdir(packageRoot);
+await mkdir(projectPath, { recursive: true });
 
 const initialPackageJSON = {
 	scripts: {
@@ -67,20 +86,20 @@ const initialPackageJSON = {
 	},
 };
 await writeFile(
-	packageRooted("package.json"),
+	projectPathed("package.json"),
 	JSON.stringify(initialPackageJSON, null, "  "),
 );
 
 const execOptions = {
-	cwd: packageRoot,
+	cwd: projectPath,
 };
-await mkdir(packageRooted("src"), { recursive: true });
+await mkdir(projectPathed("src"), { recursive: true });
 async function transferFile(rootedPath, contents) {
 	contents ??= await (async () => {
 		const filePath = new URL(join("..", rootedPath), import.meta.url);
 		return readFile(filePath, "utf-8");
 	})();
-	await writeFile(packageRooted(rootedPath), contents);
+	await writeFile(projectPathed(rootedPath), contents);
 }
 await transferFile("src/index.html");
 await transferFile("src/main.ts");
@@ -95,11 +114,10 @@ await transferFile(
 await execPromise("npm install --save cubing", execOptions);
 await execPromise("npm install --save-dev barely-a-dev-server", execOptions);
 
-console.log(`---------------------------------
-Your cubing app has been created.
+console.log(`Your cubing app has been created.
 To work on it, run:
 
-    cd ${packageRoot}
+    cd \"${projectPath.replaceAll('"', '\\"')}\"
     npm run dev
 
 To create an optimized build of your app that can be uploaded to a file server, run:
