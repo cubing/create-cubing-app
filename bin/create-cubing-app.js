@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 import { exec } from "child_process";
-import { mkdir, readFile, writeFile } from "fs/promises";
+import { exists } from "fs";
+import { mkdir, readFile, stat, writeFile } from "fs/promises";
 import { join } from "path";
 import { exit, stderr } from "process";
+import { promisify } from "util";
 
 function execPromise(cmd, options) {
 	return new Promise((resolve, reject) => {
@@ -43,6 +45,15 @@ if (!validationResults.validForNewPackages) {
 const packageRoot = join(".", packageName);
 function packageRooted(path) {
 	return join(packageRoot, path);
+}
+
+// We could uses `stat` from `"fs/promises"`, but I'm not too enthused about
+// catching an error in the "expected" path. So we use `exists`.
+if (await promisify(exists)(packageRoot)) {
+	process.stderr.write(`Project already exists in the current folder: ${packageRoot}
+Please select a different name (or delete the existing project folder).
+`);
+	exit(1);
 }
 await mkdir(packageRoot);
 
