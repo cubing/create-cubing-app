@@ -146,11 +146,11 @@ console.log(`Created a cubing project. To develop your app, run:
     cd ${packageRoot}
     npm run dev
 
-To create a build in \`./dist/web\` that can be uploaded to a file server, run:
+To create a build of your app that can be uploaded to a file server, run:
 
     npm run build
 
-When a new version of \`cubing.js\` is released on the future, you can upgrade using:
+When a new version of \`cubing.js\` is released in the future, you can upgrade using:
 
     npm install cubing@latest
 
