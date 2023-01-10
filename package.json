@@ -1,11 +1,12 @@
 {
   "name": "create-cubing-app",
-  "version": "0.35.6-rc20",
+  "version": "0.35.6-rc21",
   "type": "module",
   "bin": "./bin/create-cubing-app.js",
   "scripts": {
     "build": "node -e 'import(\"barely-a-dev-server\").then(s => s.barelyServe({entryRoot: \"./src\", dev: false, outDir: \"dist/web\"}))' && echo '' && echo 'Your app has been built in: ./dist/web' && echo ''",
     "dev": "node -e 'import(\"barely-a-dev-server\").then(s => s.barelyServe({entryRoot: \"./src\"}))'",
+    "upgrade-cubing": "npm install cubing@latest",
     "clean": "rm -rf ./dist"
   },
   "dependencies": {

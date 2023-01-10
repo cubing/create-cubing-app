@@ -63,6 +63,7 @@ const initialPackageJSON = {
 			"node -e 'import(\"barely-a-dev-server\").then(s => s.barelyServe({entryRoot: \"src\", dev: false, outDir: \"dist/web\"}))' && echo '' && echo 'Your app has been built in: ./dist/web' && echo ''",
 		dev: 'node -e \'import("barely-a-dev-server").then(s => s.barelyServe({entryRoot: "src"}))\'',
 		clean: "rm -rf ./dist",
+		"upgrade-cubing": "npm install cubing@latest",
 	},
 };
 await writeFile(
