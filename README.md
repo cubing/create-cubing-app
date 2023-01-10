@@ -9,7 +9,7 @@ See <https://js.cubing.net/cubing/> for (in-progress) documentation on `cubing.j
 Make sure `node` is installed first (which will also install `npm`): <https://nodejs.org/en/download/>
 
 ```shell
-npm create cubing-app my-cubing-project
+npm create cubing-app@latest my-cubing-project
 cd my-cubing-project
 npm run dev
 ```
