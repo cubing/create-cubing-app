@@ -49,7 +49,7 @@ await mkdir(packageRoot);
 const initialPackageJSON = {
 	scripts: {
 		build:
-			'node -e \'import("barely-a-dev-server").then(s => s.barelyServe({entryRoot: "src", dev: false, outDir: "dist/web"}))\'',
+			"node -e 'import(\"barely-a-dev-server\").then(s => s.barelyServe({entryRoot: \"src\", dev: false, outDir: \"dist/web\"}))' && echo '' && echo 'Your app has been built in: ./dist/web' && echo ''",
 		dev: 'node -e \'import("barely-a-dev-server").then(s => s.barelyServe({entryRoot: "src"}))\'',
 		clean: "rm -rf ./dist",
 	},
@@ -140,3 +140,18 @@ await transferFile(
 
 await execPromise("npm install --save cubing", execOptions);
 await execPromise("npm install --save-dev barely-a-dev-server", execOptions);
+
+console.log(`Created a cubing project. To develop your app, run:
+
+    cd ${packageRoot}
+    npm run dev
+
+To create a build in \`./dist/web\` that can be uploaded to a file server, run:
+
+    npm run build
+
+When a new version of \`cubing.js\` is released on the future, you can upgrade using:
+
+    npm install cubing@latest
+
+`);
