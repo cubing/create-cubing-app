@@ -63,7 +63,7 @@ const initialPackageJSON = {
 			"node -e 'import(\"barely-a-dev-server\").then(s => s.barelyServe({entryRoot: \"src\", dev: false, outDir: \"dist/web\"}))' && echo '' && echo 'Your app has been built in: ./dist/web' && echo ''",
 		dev: 'node -e \'import("barely-a-dev-server").then(s => s.barelyServe({entryRoot: "src"}))\'',
 		clean: "rm -rf ./dist",
-		"upgrade-cubing": "npm install cubing@latest",
+		"upgrade-cubing": "npm install --save cubing@latest",
 	},
 };
 await writeFile(
@@ -108,5 +108,5 @@ To create an optimized build of your app that can be uploaded to a file server, 
 
 When a new version of \`cubing.js\` is released in the future, you can upgrade using:
 
-    npm install cubing@latest
+    npm install --save cubing@latest
 `);
