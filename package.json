@@ -4,8 +4,8 @@
   "type": "module",
   "bin": "./bin/create-cubing-app.js",
   "scripts": {
-    "build": "node -e 'import(\"barely-a-dev-server\").then(s => s.barelyServe({entryRoot: \"./bin/src\", dev: false, outDir: \"dist/web\"}))' && echo '' && echo 'Your app has been built in: ./dist/web' && echo ''",
-    "dev": "node -e 'import(\"barely-a-dev-server\").then(s => s.barelyServe({entryRoot: \"./bin/src\"}))'",
+    "build": "node -e 'import(\"barely-a-dev-server\").then(s => s.barelyServe({entryRoot: \"./src\", dev: false, outDir: \"dist/web\"}))' && echo '' && echo 'Your app has been built in: ./dist/web' && echo ''",
+    "dev": "node -e 'import(\"barely-a-dev-server\").then(s => s.barelyServe({entryRoot: \"./src\"}))'",
     "clean": "rm -rf ./dist"
   },
   "dependencies": {
