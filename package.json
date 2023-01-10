@@ -1,5 +1,6 @@
 {
-  "name": "cubing-app-template",
+  "name": "create-cubing-app",
+  "version": "0.35.6-rc1",
   "scripts": {
     "build": "node -e 'import(\"barely-a-dev-server\").then(s => s.barelyServe({entryRoot: \"src\", dev: false, outDir: \"dist/web\"}))'",
     "dev": "node -e 'import(\"barely-a-dev-server\").then(s => s.barelyServe({entryRoot: \"src\"}))'",
