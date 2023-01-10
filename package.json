@@ -1,6 +1,6 @@
 {
   "name": "create-cubing-app",
-  "version": "0.35.6-rc19",
+  "version": "0.35.6-rc20",
   "type": "module",
   "bin": "./bin/create-cubing-app.js",
   "scripts": {

@@ -94,7 +94,8 @@ await transferFile(
 await execPromise("npm install --save cubing", execOptions);
 await execPromise("npm install --save-dev barely-a-dev-server", execOptions);
 
-console.log(`Your cubing app has been created.
+console.log(`---------------------------------
+Your cubing app has been created.
 To work on it, run:
 
     cd ${packageRoot}
