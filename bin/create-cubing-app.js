@@ -32,9 +32,7 @@ await execPromise("npm install --save-dev barely-a-dev-server");
 
 await mkdir("./src", { recursive: true });
 async function transferFile(rootedPath) {
-	const indexHTML = await readFile(
-		new URL(`../${rootedPath}`, import.meta.url),
-	);
+	const indexHTML = await readFile(new URL(`./${rootedPath}`, import.meta.url));
 	await writeFile(`./${rootedPath}`, indexHTML);
 }
 await transferFile("src/index.html");
