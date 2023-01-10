@@ -23,13 +23,13 @@ await execPromise("npm install validate-npm-package-name", {
 });
 
 function badPackageName() {
-	stderr.write(`Please specify a valid project name!
-For example:
+	stderr.write(`Usage:
 
-    npm create cubing-app my-cubing-project
+    npm create cubing-app <project folder name>
 
+The project folder name should consist of only letters, numbers, dashes, and underscores.
 `);
-	exit(1);
+	exit(0);
 }
 const packageName = process.argv[2];
 if (!packageName) {
