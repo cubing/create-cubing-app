@@ -15,8 +15,8 @@ export function execPromise(cmd, options) {
 	});
 }
 
-execPromise("npm install --save cubing");
-execPromise("npm install --save-dev barely-a-dev-server");
+await execPromise("npm install --save cubing");
+await execPromise("npm install --save-dev barely-a-dev-server");
 
 await mkdir("./src", { recursive: true });
 async function transferFile(basename) {
