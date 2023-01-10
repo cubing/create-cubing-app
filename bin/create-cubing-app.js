@@ -153,5 +153,4 @@ To create a build of your app that can be uploaded to a file server, run:
 When a new version of \`cubing.js\` is released in the future, you can upgrade using:
 
     npm install cubing@latest
-
 `);
