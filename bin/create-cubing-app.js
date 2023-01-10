@@ -74,15 +74,22 @@ const execOptions = {
 	cwd: packageRoot,
 };
 await mkdir(packageRooted("src"), { recursive: true });
-async function transferFile(rootedPath) {
-	const filePath = new URL(join("..", rootedPath), import.meta.url);
-	const contents = await readFile(filePath, "utf-8");
+async function transferFile(rootedPath, contents) {
+	contents ??= await (async () => {
+		const filePath = new URL(join("..", rootedPath), import.meta.url);
+		return readFile(filePath, "utf-8");
+	})();
 	await writeFile(packageRooted(rootedPath), contents);
 }
 await transferFile("src/index.html");
 await transferFile("src/main.ts");
 await transferFile("src/index.css");
-await transferFile(".gitignore");
+await transferFile(
+	".gitignore",
+	`/dist
+/node_modules
+`,
+);
 
 await execPromise("npm install --save cubing", execOptions);
 await execPromise("npm install --save-dev barely-a-dev-server", execOptions);
