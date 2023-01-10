@@ -115,7 +115,7 @@ await execPromise("npm install --save cubing", execOptions);
 await execPromise("npm install --save-dev barely-a-dev-server", execOptions);
 
 console.log(`Your cubing app has been created.
-To work on it, run:
+To work on the files in \`./src\`, run:
 
     cd \"${projectPath.replaceAll('"', '\\"')}\"
     npm run dev
