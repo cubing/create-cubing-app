@@ -1,6 +1,6 @@
 {
   "name": "create-cubing-app",
-  "version": "0.35.6-rc17",
+  "version": "0.35.6-rc18",
   "type": "module",
   "bin": "./bin/create-cubing-app.js",
   "scripts": {
@@ -19,7 +19,7 @@
   },
   "files": [
     "./bin",
-    ".gitignore",
+    "./.gitignore",
     "./src"
   ]
 }
