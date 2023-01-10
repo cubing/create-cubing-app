@@ -1,6 +1,7 @@
 {
   "name": "create-cubing-app",
-  "version": "0.35.6-rc3",
+  "version": "0.35.6-rc4",
+  "type": "module",
   "bin": "./bin/create-cubing-app.js",
   "scripts": {
     "build": "node -e 'import(\"barely-a-dev-server\").then(s => s.barelyServe({entryRoot: \"src\", dev: false, outDir: \"dist/web\"}))'",
