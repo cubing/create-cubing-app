@@ -17,6 +17,8 @@ function execPromise(cmd, options) {
 	});
 }
 
+await execPromise("npm install validate-npm-package-name");
+
 function badPackageName() {
 	stderr.write(`Please specify a valid project name!
 For example:
