@@ -3,7 +3,6 @@ import { exec } from "child_process";
 import { mkdir, writeFile } from "fs/promises";
 import { join } from "path";
 import { exit, stderr } from "process";
-import { default as validate } from "validate-npm-package-name";
 
 function execPromise(cmd, options) {
 	return new Promise((resolve, reject) => {
@@ -34,6 +33,8 @@ const packageName = process.argv[2];
 if (!packageName) {
 	badPackageName();
 }
+
+const validate = (await import("validate-npm-package-name")).default;
 const validationResults = validate(packageName);
 if (!validationResults.validForNewPackages) {
 	badPackageName();
