@@ -2,7 +2,7 @@
 # https://github.com/lgarron/Makefile-scripts
 
 # Note: the first command becomes the default `make` target.
-NPM_COMMANDS = build dev upgrade-cubing clean
+NPM_COMMANDS = build dev roll-cubing-commit clean
 
 .PHONY: $(NPM_COMMANDS)
 $(NPM_COMMANDS):
