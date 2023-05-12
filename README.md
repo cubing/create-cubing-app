@@ -22,7 +22,7 @@ npm run build
 
 The site will be built to the `dist/web` folder, ready to place onto any static web server.
 
-(Note: the output uses module scripts, which means you can't just open the output HTML files directly in the browser. You have to use a web server. Something like `python3 -m http.server -d dist/web` might help if you just need to test the output locally.)
+(Note: the output uses module scripts, which means you can't just open the output HTML files directly in the browser. You have to use a web server. If you want to test the output of `npm run build` locally on your computer, you can run: `npx http-server ./dist/web`)
 
 ## Getting the latest version of `cubing.js`
 
