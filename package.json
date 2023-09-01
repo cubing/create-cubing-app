@@ -10,7 +10,7 @@
     "clean": "rm -rf ./dist"
   },
   "dependencies": {
-    "cubing": "^0.41.1"
+    "cubing": "^0.42.0"
   },
   "devDependencies": {
     "@types/validate-npm-package-name": "^4.0.0",
