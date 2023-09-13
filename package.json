@@ -14,8 +14,8 @@
   },
   "devDependencies": {
     "@types/validate-npm-package-name": "^4.0.0",
-    "barely-a-dev-server": "^0.5.1",
-    "esbuild": "^0.17.19",
+    "barely-a-dev-server": "^0.6.0",
+    "esbuild": "^0.19.2",
     "validate-npm-package-name": "^5.0.0"
   },
   "files": [
