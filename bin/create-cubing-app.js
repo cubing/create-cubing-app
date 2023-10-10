@@ -77,10 +77,10 @@ Please select a different name (or delete the existing project folder).
 await mkdir(projectPath, { recursive: true });
 
 const initialPackageJSON = {
+	type: "module",
 	scripts: {
-		build:
-			"node -e 'import(\"barely-a-dev-server\").then(s => s.barelyServe({entryRoot: \"src\", dev: false, outDir: \"dist/web\"}))' && echo '' && echo 'Your app has been built in: ./dist/web' && echo ''",
-		dev: 'node -e \'import("barely-a-dev-server").then(s => s.barelyServe({entryRoot: "src"}))\'',
+    "build": "node script/build.js",
+    "dev": "node script/dev.js",
 		clean: "rm -rf ./dist",
 		"upgrade-cubing": "npm install --save cubing@latest",
 	},
@@ -93,6 +93,7 @@ await writeFile(
 const execOptions = {
 	cwd: projectPath,
 };
+await mkdir(projectPathed("script"), { recursive: true });
 await mkdir(projectPathed("src"), { recursive: true });
 async function transferFile(rootedPath, contents) {
 	contents ??= await (async () => {
@@ -101,6 +102,8 @@ async function transferFile(rootedPath, contents) {
 	})();
 	await writeFile(projectPathed(rootedPath), contents);
 }
+await transferFile("script/build.js");
+await transferFile("script/dev.js");
 await transferFile("src/index.html");
 await transferFile("src/main.ts");
 await transferFile("src/index.css");
@@ -110,6 +113,7 @@ await transferFile(
 /node_modules
 `,
 );
+await transferFile("tsconfig.json");
 
 await execPromise("npm install --save cubing", execOptions);
 await execPromise("npm install --save-dev barely-a-dev-server", execOptions);
