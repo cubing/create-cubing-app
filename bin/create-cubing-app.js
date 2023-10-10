@@ -105,7 +105,6 @@ async function transferFile(rootedPath, contents) {
 	await writeFile(projectPathed(rootedPath), contents);
 }
 await transferFile("script/build.js");
-await transferFile("script/dev.js");
 await transferFile("src/index.html");
 await transferFile("src/main.ts");
 await transferFile("src/index.css");
