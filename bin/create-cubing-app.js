@@ -7,6 +7,8 @@ import { exit, stderr } from "process";
 import { createInterface } from "readline";
 import { promisify } from "util";
 
+const CREATE_CUBING_APP_PACKAGE_JSON = JSON.parse(await readFile(new URL("../package.json", import.meta.url), "utf-8"));
+
 function execPromise(cmd, options) {
 	return new Promise((resolve, reject) => {
 		const childProcess = exec(cmd, options, (error, stdout, stderr) => {
@@ -79,8 +81,8 @@ await mkdir(projectPath, { recursive: true });
 const initialPackageJSON = {
 	type: "module",
 	scripts: {
-    "build": "node script/build.js",
-    "dev": "node script/dev.js",
+    "build": CREATE_CUBING_APP_PACKAGE_JSON.scripts["build"],
+    "dev": CREATE_CUBING_APP_PACKAGE_JSON.scripts["dev"],
 		clean: "rm -rf ./dist",
 		"upgrade-cubing": "npm install --save cubing@latest",
 	},

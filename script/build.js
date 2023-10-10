@@ -2,18 +2,26 @@
 
 import {barelyServe} from "barely-a-dev-server";
 
-const outDir = "./dist/web";
-export const COMMON_OPTIONS = {
+export const COMMON_BUILD_OPTIONS = {
   entryRoot: "./src",
   esbuildOptions: {chunkNames: "chunks/[name]-[hash]"}
 }
 
-await barelyServe({
-  ...COMMON_OPTIONS,
-  dev: false,
-  outDir,
-});
+if (process.argv.at(-1) === "--dev") {
 
-console.log(`
-Your app has been built in: ${outDir}
-`)
+  barelyServe(COMMON_BUILD_OPTIONS);
+
+} else {
+
+  const outDir = "./dist/web";
+  await barelyServe({
+    ...COMMON_BUILD_OPTIONS,
+    dev: false,
+    outDir,
+  });
+
+  console.log(`
+  Your app has been built in: ${outDir}
+  
+  `)
+}

@@ -5,7 +5,7 @@
   "bin": "./bin/create-cubing-app.js",
   "scripts": {
     "build": "node script/build.js",
-    "dev": "node script/dev.js",
+    "dev": "node script/build.js -- --dev",
     "roll-cubing-commit": "./script/roll-cubing-commit.bash",
     "clean": "rm -rf ./dist"
   },

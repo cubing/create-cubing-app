@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
 import {barelyServe} from "barely-a-dev-server";
-import { COMMON_OPTIONS } from "./build.js";
+import { COMMON_BUILD_OPTIONS } from "./common-build-options.js";
 
-barelyServe(COMMON_OPTIONS);
+barelyServe(COMMON_BUILD_OPTIONS);
