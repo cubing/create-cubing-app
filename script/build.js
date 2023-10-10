@@ -21,7 +21,6 @@ if (process.argv.at(-1) === "--dev") {
   });
 
   console.log(`
-  Your app has been built in: ${outDir}
-  
-  `)
+Your app has been built in: ${outDir}
+`)
 }
