@@ -3,25 +3,25 @@
   "version": "0.36.4",
   "type": "module",
   "bin": "./bin/create-cubing-app.js",
+  "engines": {
+    "node": ">=19"
+  },
   "scripts": {
-    "build": "node script/build.js",
-    "dev": "node script/build.js -- --dev",
+    "app-build": "cd app-template && npm run build",
+    "app-dev": "cd app-template && npm run dev",
+    "app-clean": "cd app-template && npm run clean",
     "roll-cubing-commit": "./script/roll-cubing-commit.bash",
-    "clean": "rm -rf ./dist"
+    "clean": "rm -rf ./dist && npm run app-clean"
   },
   "dependencies": {
     "cubing": "^0.43.4"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.2.2",
     "@types/validate-npm-package-name": "^4.0.0",
     "barely-a-dev-server": "^0.6.0",
     "esbuild": "^0.19.2",
     "validate-npm-package-name": "^5.0.0"
   },
-  "files": [
-    "./bin",
-    "./script",
-    "./src",
-    "./tsconfig.json"
-  ]
+  "files": ["./bin", "./script", "./src", "./tsconfig.json"]
 }

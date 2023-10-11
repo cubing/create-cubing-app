@@ -2,7 +2,7 @@
 # https://github.com/lgarron/Makefile-scripts
 
 # Note: the first command becomes the default `make` target.
-NPM_COMMANDS = build dev roll-cubing-commit clean
+NPM_COMMANDS = app-build app-dev app-clean roll-cubing-commit clean
 
 .PHONY: $(NPM_COMMANDS)
 $(NPM_COMMANDS):
@@ -19,3 +19,9 @@ update-Makefile:
 .PHONY: publish
 publish:
 	npm publish
+
+.PHONY: dev
+dev: app-dev
+
+.PHONY: build
+build: app-build

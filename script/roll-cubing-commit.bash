@@ -10,6 +10,8 @@ then
   exit 1
 fi
 
+cd app || exit
+
 VERSION=$(npm show cubing version)
 echo "Rolling \`cubing\` to version: v${VERSION}"
 
