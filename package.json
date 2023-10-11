@@ -7,11 +7,7 @@
     "node": ">=19"
   },
   "scripts": {
-    "app-build": "cd app-template && npm run build",
-    "app-dev": "cd app-template && npm run dev",
-    "app-clean": "cd app-template && npm run clean",
-    "roll-cubing-commit": "./script/roll-cubing-commit.bash",
-    "clean": "rm -rf ./dist && npm run app-clean"
+    "prepublish-only": "prepublish-only"
   },
   "dependencies": {
     "cubing": "^0.43.4"
@@ -23,10 +19,5 @@
     "esbuild": "^0.19.2",
     "validate-npm-package-name": "^5.0.0"
   },
-  "files": [
-    "./bin",
-    "./script",
-    "./src",
-    "./tsconfig.json"
-  ]
+  "files": ["./bin", "./script", "./src", "./tsconfig.json"]
 }

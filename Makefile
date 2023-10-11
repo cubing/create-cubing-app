@@ -1,27 +1,31 @@
-# This Makefile is a wrapper around the scripts from `package.json`.
-# https://github.com/lgarron/Makefile-scripts
-
-# Note: the first command becomes the default `make` target.
-NPM_COMMANDS = app-build app-dev app-clean roll-cubing-commit clean
-
-.PHONY: $(NPM_COMMANDS)
-$(NPM_COMMANDS):
-	npm run $@
-
-# We write the npm commands to the top of the file above to make shell autocompletion work in more places.
-DYNAMIC_NPM_COMMANDS = $(shell node -e 'console.log(Object.keys(require("./package.json").scripts).join(" "))')
-UPDATE_MAKEFILE_SED_ARGS = "s/^NPM_COMMANDS = .*$$/NPM_COMMANDS = ${DYNAMIC_NPM_COMMANDS}/" Makefile
-.PHONY: update-Makefile
-update-Makefile:
-	if [ "$(shell uname -s)" = "Darwin" ] ; then sed -i "" ${UPDATE_MAKEFILE_SED_ARGS} ; fi
-	if [ "$(shell uname -s)" != "Darwin" ] ; then sed -i"" ${UPDATE_MAKEFILE_SED_ARGS} ; fi
-
-.PHONY: publish
-publish:
-	npm publish
+.PHONY: app-dev
+app-dev:
+	cd app-template && npm run dev
 
 .PHONY: dev
 dev: app-dev
 
+.PHONY: app-build
+app-build:
+	cd app-template && npm run build
+
 .PHONY: build
 build: app-build
+
+.PHONY: app-clean
+app-clean:
+	cd app-template && npm run clean
+
+.PHONY: clean
+clean:
+	rm -rf ./dist && npm run app-clean
+
+.PHONY: roll-cubing-commit
+roll-cubing-commit:
+	./script/roll-cubing-commit.bash
+
+.PHONY: prepublish-only
+prepublish-only: test
+
+.PHONY: test
+test: build
