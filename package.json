@@ -1,6 +1,6 @@
 {
   "name": "create-cubing-app",
-  "version": "0.38.0",
+  "version": "0.43.5",
   "type": "module",
   "bin": "./bin/create-cubing-app.js",
   "engines": {
@@ -19,5 +19,10 @@
     "esbuild": "^0.19.2",
     "validate-npm-package-name": "^5.0.0"
   },
-  "files": ["./bin", "./script", "./src", "./tsconfig.json"]
+  "files": [
+    "./bin",
+    "./script",
+    "./src",
+    "./tsconfig.json"
+  ]
 }
