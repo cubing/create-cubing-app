@@ -24,6 +24,10 @@ clean:
 roll-cubing-commit:
 	./script/roll-cubing-commit.bash
 
+.PHONY: publish
+publish:
+	npm publish
+
 .PHONY: prepublish-only
 prepublish-only: test
 
