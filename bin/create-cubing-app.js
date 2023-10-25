@@ -66,9 +66,8 @@ Please select a different name (or delete the existing project folder).
 }
 await mkdir(projectPath, { recursive: true });
 
-const f = new URL("../app", import.meta.url).pathname;
-console.log(f);
-await cp(f, projectPath, {
+const appTemplatePath = new URL("../app-template", import.meta.url).pathname;
+await cp(appTemplatePath, projectPath, {
   recursive: true,
 });
 await execPromise("npm install", {
