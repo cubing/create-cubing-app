@@ -7,7 +7,7 @@
     "upgrade-cubing": "npm install --save cubing@latest"
   },
   "dependencies": {
-    "cubing": "^0.46.2"
+    "cubing": "^0.47.0"
   },
   "devDependencies": {
     "barely-a-dev-server": "^0.6.0"
