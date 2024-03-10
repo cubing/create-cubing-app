@@ -10,13 +10,13 @@
     "prepublish-only": "prepublish-only"
   },
   "dependencies": {
-    "cubing": "^0.43.4"
+    "cubing": "^0.47.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.2.2",
-    "@types/validate-npm-package-name": "^4.0.0",
-    "barely-a-dev-server": "^0.6.0",
-    "esbuild": "^0.19.2",
+    "@biomejs/biome": "^1.6.0",
+    "@types/validate-npm-package-name": "^4.0.2",
+    "barely-a-dev-server": "^0.6.1",
+    "esbuild": "^0.20.1",
     "validate-npm-package-name": "^5.0.0"
   },
   "files": [
