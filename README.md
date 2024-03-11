@@ -6,7 +6,8 @@ See <https://js.cubing.net/cubing/> for (in-progress) documentation on `cubing.j
 
 ## Getting started
 
-Make sure `node` is installed first (which will also install `npm`): <https://nodejs.org/en/download/>
+1. Install `node` (which will also install `npm`): <https://nodejs.org/en/download/>
+2. Run:
 
 ```shell
 npm create --yes cubing-app@latest my-cubing-project
