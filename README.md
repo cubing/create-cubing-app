@@ -15,6 +15,10 @@ cd my-cubing-project
 npm run dev
 ```
 
+### Windows
+
+We recommend using [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) on Windows.
+
 ## Building the site for the web
 
 ```shell
