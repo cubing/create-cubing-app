@@ -18,8 +18,7 @@ function printHelpAndExit() {
 
 npm create cubing-app <project folder name>
 
-The project folder name should consist of only letters, numbers, dashes, and u
-nderscores.
+The project folder name should consist of only letters, numbers, dashes, and underscores.
 `);
   exit(1);
 }
