@@ -9,9 +9,6 @@
   "scripts": {
     "prepublish-only": "prepublish-only"
   },
-  "dependencies": {
-    "cubing": "^0.47.1"
-  },
   "devDependencies": {
     "@biomejs/biome": "^1.6.0",
     "@types/validate-npm-package-name": "^4.0.2",
