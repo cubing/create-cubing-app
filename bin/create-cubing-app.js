@@ -56,7 +56,7 @@ Creating a cubing project in the following folder:
 ${projectPath}
 `);
 
-// We could uses `stat` from `"fs/promises"`, but I'm not too enthused about
+// We could use `stat` from `"fs/promises"`, but I'm not too enthused about
 // catching an error in the "expected" path. So we use `exists`.
 if (await promisify(exists)(projectPath)) {
   process.stderr.write(`Project already exists in the current folder: ${projectPath}
