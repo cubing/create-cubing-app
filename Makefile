@@ -24,6 +24,10 @@ clean:
 roll-cubing-commit:
 	./script/roll-cubing-commit.bash
 
+.PHONY: bump-version-to-match-app-template-cubing
+bump-version-to-match-app-template-cubing:
+	bun run ./script/bump-version-to-match-app-template-cubing.ts
+
 .PHONY: publish
 publish:
 	npm publish
