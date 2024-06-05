@@ -2,7 +2,9 @@
   "name": "create-cubing-app",
   "version": "0.49.0",
   "type": "module",
-  "bin": "./bin/create-cubing-app.js",
+  "bin": {
+    "create-cubing-app": "bin/create-cubing-app.js"
+  },
   "engines": {
     "node": ">=19"
   },
