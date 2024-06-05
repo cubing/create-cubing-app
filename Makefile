@@ -20,13 +20,9 @@ app-clean:
 clean:
 	rm -rf ./dist && npm run app-clean
 
-.PHONY: roll-cubing-commit
-roll-cubing-commit:
-	./script/roll-cubing-commit.bash
-
-.PHONY: bump-version-to-match-app-template-cubing
-bump-version-to-match-app-template-cubing:
-	bun run ./script/bump-version-to-match-app-template-cubing.ts
+.PHONY: auto-publish
+auto-publish:
+	bun run ./script/auto-publish.ts
 
 .PHONY: publish
 publish:
