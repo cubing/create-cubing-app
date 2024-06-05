@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-import { exec } from "child_process";
-import { exists } from "fs";
-import { cp, mkdir, readFile, stat, writeFile } from "fs/promises";
-import { join, resolve } from "path";
-import { exit, stderr } from "process";
-import { createInterface } from "readline";
-import { promisify } from "util";
+import { exec } from "node:child_process";
+import { exists } from "node:fs";
+import { cp, mkdir, readFile, stat, writeFile } from "node:fs/promises";
+import { join, resolve } from "node:path";
+import { exit, stderr } from "node:process";
+import { createInterface } from "node:readline";
+import { promisify } from "node:util";
 
 const CREATE_CUBING_APP_PACKAGE_JSON = JSON.parse(
   await readFile(new URL("../package.json", import.meta.url), "utf-8"),
