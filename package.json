@@ -7,20 +7,16 @@
     "node": ">=19"
   },
   "scripts": {
-    "prepublish-only": "prepublish-only"
+    "prepublish-only": "prepublish-only",
+    "lint": "npx @biomejs/biome check ./bin",
+    "format": "npx @biomejs/biome format --write ./bin"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.6.0",
+    "@biomejs/biome": "^1.8.0",
     "@types/validate-npm-package-name": "^4.0.2",
     "barely-a-dev-server": "^0.6.1",
     "esbuild": "^0.20.1",
     "validate-npm-package-name": "^5.0.0"
   },
-  "files": [
-    "./app-template",
-    "./bin",
-    "./script",
-    "./src",
-    "./tsconfig.json"
-  ]
+  "files": ["./app-template", "./bin", "./script", "./src", "./tsconfig.json"]
 }
