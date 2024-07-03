@@ -33,3 +33,11 @@ prepublish-only: test
 
 .PHONY: test
 test: build
+
+.PHONY: lint
+lint:
+	npx @biomejs/biome check ./bin ./script ./app-template/script ./app-template/src
+
+.PHONY: format
+format:
+	npx @biomejs/biome format --write ./bin ./script ./app-template/script ./app-template/src

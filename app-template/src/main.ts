@@ -11,7 +11,7 @@ class App {
   twistyPlayer: TwistyPlayer = document.querySelector("#main-player")!;
   // Example of creating a new element and adding it to the page.
   twistyAlgViewer = document.body.appendChild(
-    new TwistyAlgViewer({ twistyPlayer: this.twistyPlayer })
+    new TwistyAlgViewer({ twistyPlayer: this.twistyPlayer }),
   );
   constructor() {
     this.updateScramble();
