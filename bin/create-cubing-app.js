@@ -6,6 +6,7 @@ import { join, resolve } from "node:path";
 import { exit, stderr } from "node:process";
 import { createInterface } from "node:readline";
 import { promisify } from "node:util";
+import { fileURLToPath } from "node:url";
 
 const CREATE_CUBING_APP_PACKAGE_JSON = JSON.parse(
   await readFile(new URL("../package.json", import.meta.url), "utf-8"),
@@ -65,7 +66,7 @@ Please select a different name (or delete the existing project folder).
 }
 await mkdir(projectPath, { recursive: true });
 
-const appTemplatePath = new URL("../app-template", import.meta.url).pathname;
+const appTemplatePath = fileURLToPath(new URL("../app-template", import.meta.url));
 await cp(appTemplatePath, projectPath, {
   recursive: true,
 });
