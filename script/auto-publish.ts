@@ -1,5 +1,5 @@
 import { exit } from "node:process";
-import { $ } from "bun";
+import { $, fileURLToPath } from "bun";
 
 if ((await $`git status --porcelain`).stdout.toString().trim()) {
   console.error("git status must be clean.");
@@ -8,7 +8,7 @@ if ((await $`git status --porcelain`).stdout.toString().trim()) {
 
 const version = (await $`npm show cubing version`).stdout.toString().trim();
 
-await $`npm install --prefix ${new URL(import.meta.resolve("../app-template/")).pathname} "cubing@v${version}"`;
+await $`npm install --prefix ${fileURLToPath(new URL(import.meta.resolve("../app-template/")))} "cubing@v${version}"`;
 await $`npm version --no-git-tag-version "v${version}"`;
 await $`git commit --all --message "v${version}"`;
 await $`git push`;
