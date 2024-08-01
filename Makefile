@@ -1,24 +1,29 @@
-.PHONY: app-dev
-app-dev:
+.PHONY: app-template-dev
+app-template-dev:
 	cd app-template && npm run dev
 
 .PHONY: dev
-dev: app-dev
+dev: app-template-dev
 
-.PHONY: app-build
-app-build:
+.PHONY: app-template-build
+app-template-build: app-template/node_modules
 	cd app-template && npm run build
 
-.PHONY: build
-build: app-build
+.PHONY: app-template/node_modules
+app-template/node_modules:
+	cd app-template && npm install
 
-.PHONY: app-clean
-app-clean:
-	cd app-template && npm run clean
+
+.PHONY: build
+build: app-template-build
+
+.PHONY: app-template-clean
+app-template-clean: 
+	cd app-template
 
 .PHONY: clean
-clean:
-	rm -rf ./dist && npm run app-clean
+clean: app-template-clean
+	rm -rf ./dist
 
 .PHONY: auto-publish
 auto-publish:

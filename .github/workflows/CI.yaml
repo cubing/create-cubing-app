@@ -3,7 +3,7 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  create_and_build:
+  create-and-build:
     name: Create and build
 
     strategy:
@@ -19,3 +19,20 @@ jobs:
           node-version: "20"
       - run: node bin/create-cubing-app my-cubing-project
       - run: cd my-cubing-project && npm run build
+
+  app-template-build:
+    name: Create and build app from repo
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install
+      - run: make app-template-build
