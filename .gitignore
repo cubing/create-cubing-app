@@ -1,5 +1,6 @@
 /dist
 /node_modules
+/package-lock.json
 
 # Workaround for https://github.com/oven-sh/bun/issues/16965
 /app-template/bun.lock
