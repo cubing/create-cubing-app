@@ -25,6 +25,10 @@ app-template-clean:
 clean: app-template-clean
 	rm -rf ./dist
 
+.PHONY: reset
+reset: clean
+	rm -rf ./node_modules
+
 .PHONY: auto-publish
 auto-publish:
 	bun run ./script/auto-publish.ts
