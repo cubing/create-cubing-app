@@ -49,8 +49,8 @@ test: build
 
 .PHONY: lint
 lint: setup
-	npx @biomejs/biome check ./bin ./script ./app-template/script ./app-template/src
+	npx @biomejs/biome check
 
 .PHONY: format
 format: setup
-	npx @biomejs/biome format --write ./bin ./script ./app-template/script ./app-template/src
+	npx @biomejs/biome check --write
