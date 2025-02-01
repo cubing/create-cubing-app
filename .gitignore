@@ -1,2 +1,6 @@
 /dist
 /node_modules
+
+# Workaround for https://github.com/oven-sh/bun/issues/16965
+/app-template/bun.lock
+/app-template/bun.lockb
