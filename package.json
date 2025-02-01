@@ -9,7 +9,7 @@
     "node": ">=19"
   },
   "scripts": {
-    "prepublish-only": "make prepublish-only"
+    "prepublishOnly": "make prepublishOnly"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.0",

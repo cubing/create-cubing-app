@@ -41,8 +41,8 @@ auto-publish: setup
 publish: setup
 	npm publish --globalconfig=$HOME/.config/npm/cubing-publish.npmrc
 
-.PHONY: prepublish-only
-prepublish-only: test
+.PHONY: prepublishOnly
+prepublishOnly: test
 
 .PHONY: test
 test: build
