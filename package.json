@@ -17,5 +17,5 @@
     "@types/validate-npm-package-name": "^4.0.2",
     "validate-npm-package-name": "^5.0.0"
   },
-  "files": ["./app-template", "./bin", "./script", "./src", "./tsconfig.json"]
+  "files": ["./app-template", "./bin"]
 }
