@@ -27,11 +27,11 @@ app-template-clean:
 
 .PHONY: clean
 clean: app-template-clean
-	rm -rf ./dist ./app-template/node_modules
+	rm -rf ./.test/ ./dist/ ./app-template/node_modules/
 
 .PHONY: reset
 reset: clean
-	rm -rf ./node_modules
+	rm -rf ./node_modules/
 
 .PHONY: auto-publish
 auto-publish: setup
@@ -45,7 +45,7 @@ publish: setup
 prepublishOnly: clean test
 
 .PHONY: test
-test: build
+test: build test-create-and-build
 
 .PHONY: lint
 lint: setup
@@ -54,3 +54,12 @@ lint: setup
 .PHONY: format
 format: setup
 	npx @biomejs/biome check --write
+
+TEST_CREATE_AND_BUILD_FOLDER = ./.test/create-and-build
+
+.PHONY: test-create-and-build
+test-create-and-build:
+	mkdir -p ${TEST_CREATE_AND_BUILD_FOLDER}
+	node bin/create-cubing-app ${TEST_CREATE_AND_BUILD_FOLDER}/my-cubing-project
+	cd ${TEST_CREATE_AND_BUILD_FOLDER}/my-cubing-project && npm run build
+	rm -rf ${TEST_CREATE_AND_BUILD_FOLDER}

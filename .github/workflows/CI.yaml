@@ -17,8 +17,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - run: node bin/create-cubing-app my-cubing-project
-      - run: cd my-cubing-project && npm run build
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "latest"
+      - run: make test-create-and-build
 
   app-template-build:
     name: Create and build app from repo
@@ -34,5 +36,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - run: npm install
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "latest"
+      - run: make setup
       - run: make app-template-build
