@@ -10,6 +10,6 @@
     "cubing": "^0.56.0"
   },
   "devDependencies": {
-    "barely-a-dev-server": "^0.7.0"
+    "barely-a-dev-server": "^0.8.0"
   }
 }
