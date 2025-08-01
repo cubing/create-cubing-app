@@ -16,7 +16,7 @@ app-template/node_modules:
 
 .PHONY: setup
 setup: app-template/node_modules
-	bun install --no--save
+	bun install --frozen-lockfile
 
 .PHONY: build
 build: app-template-build
