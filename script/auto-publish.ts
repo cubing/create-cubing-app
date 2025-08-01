@@ -8,6 +8,7 @@ if ((await $`git status --porcelain`).stdout.toString().trim()) {
 
 const version = (await $`npm show cubing version`).stdout.toString().trim();
 
+// TODO: https://github.com/oven-sh/bun/discussions/10181
 const currentDependencyVersion: string = (
   await $`cd app-template && npm ls cubing --json`.json()
 ).dependencies.cubing.version;
