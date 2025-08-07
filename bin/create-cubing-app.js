@@ -1,4 +1,5 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --
+
 import { exec } from "node:child_process";
 import { exists } from "node:fs";
 import { cp, mkdir, readFile, stat, writeFile } from "node:fs/promises";
