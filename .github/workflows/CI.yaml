@@ -41,3 +41,4 @@ jobs:
           bun-version: "latest"
       - run: make setup
       - run: make app-template-build
+      - run: make check-package.json

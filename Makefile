@@ -2,6 +2,9 @@
 app-template-dev: setup
 	cd app-template && bun run dev
 
+.PHONY: check
+check: lint test build check-package.json
+
 .PHONY: dev
 dev: app-template-dev
 
@@ -25,6 +28,10 @@ build: app-template-build
 app-template-clean:
 	cd app-template && bun run clean
 
+.PHONY: check-package.json
+check-package.json: build
+	bun x --package @cubing/dev-config package.json check
+
 .PHONY: clean
 clean: app-template-clean
 	rm -rf ./.test/ ./dist/ ./app-template/node_modules/
@@ -42,7 +49,7 @@ publish: setup
 	npm publish --globalconfig="${HOME}/.config/npm/cubing-publish.npmrc"
 
 .PHONY: prepublishOnly
-prepublishOnly: clean test
+prepublishOnly: test check build
 
 .PHONY: test
 test: build test-create-and-build
