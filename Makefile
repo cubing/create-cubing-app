@@ -28,9 +28,13 @@ build: app-template-build
 app-template-clean:
 	cd app-template && bun run clean
 
-.PHONY: check-package.json
+ifeq ($(OS),Windows_NT)
+check-package.json:
+	# No-op for Windows due to `env` incompatibility. 🤷
+else
 check-package.json: build
 	bun x --package @cubing/dev-config package.json check
+endif
 
 .PHONY: clean
 clean: app-template-clean
