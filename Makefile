@@ -33,7 +33,7 @@ check-package.json:
 	# No-op for Windows due to `env` incompatibility. 🤷
 else
 check-package.json: build
-	bun x --package @cubing/dev-config package.json check
+	bun x -- bun-dx --package @cubing/dev-config package.json -- check
 endif
 
 .PHONY: clean
