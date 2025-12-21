@@ -1,10 +1,10 @@
 // Always keep the following line if you are using any twisty players on your page.
 import "cubing/twisty";
-// Use the following line for specific imports from `cubing/twisty`.
-import { TwistyAlgViewer, type TwistyPlayer } from "cubing/twisty";
 
 // Import from other modules as usual.
 import { randomScrambleForEvent } from "cubing/scramble";
+// Use the following line for specific imports from `cubing/twisty`.
+import { TwistyAlgViewer, type TwistyPlayer } from "cubing/twisty";
 
 class App {
   // Example of getting an element from the page.

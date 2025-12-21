@@ -2,28 +2,13 @@
 
 import { exec } from "node:child_process";
 import { exists } from "node:fs";
-import { cp, mkdir, readFile, stat, writeFile } from "node:fs/promises";
-import { join, resolve } from "node:path";
-import { exit, stderr } from "node:process";
+import { cp, mkdir } from "node:fs/promises";
+import { exit } from "node:process";
 import { createInterface } from "node:readline";
 import { fileURLToPath } from "node:url";
 import { promisify } from "node:util";
 
-const CREATE_CUBING_APP_PACKAGE_JSON = JSON.parse(
-  await readFile(new URL("../package.json", import.meta.url), "utf-8"),
-);
-
 const execPromise = promisify(exec);
-
-function printHelpAndExit() {
-  stderr.write(`Usage:
-
-npm create cubing-app <project folder name>
-
-The project folder name should consist of only letters, numbers, dashes, and underscores.
-`);
-  exit(1);
-}
 
 let projectPath = process.argv[2];
 if (!projectPath) {
@@ -80,7 +65,7 @@ await execPromise("npm install", {
 console.log(`Your cubing app has been created.
 To work on it, run:
 
-    cd \"${projectPath.replaceAll('"', '\\"')}\"
+    cd "${projectPath.replaceAll('"', '\\"')}"
     npm run dev
 
 Edit the files in \`src\` and open the displayed URL in browser to see changes.
