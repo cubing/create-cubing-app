@@ -1,4 +1,4 @@
-#!/usr/bin/env node --
+#!/usr/bin/env -S node --
 
 import { exec } from "node:child_process";
 import { exists } from "node:fs";
