@@ -15,6 +15,10 @@ cd my-cubing-project
 npm run dev
 ```
 
+Open <http://localhost:1234/>, and you should see a `<twisty-player>` with a scramble:
+
+<img width="480" src="./img/screenshot.avif" alt="Screenshot showing a <twisty-player> and a scramble.">
+
 ### Windows
 
 We recommend using [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) on Windows.
