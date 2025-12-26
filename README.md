@@ -25,9 +25,9 @@ We recommend using [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) 
 npm run build
 ```
 
-The site will be built to the `dist/web` folder, ready to place onto any static web server.
+The site will be built to the `./dist/web/` folder, ready to place onto any static web server.
 
-(Note: the output uses module scripts, which means you can't just open the output HTML files directly in the browser. You have to use a web server. If you want to test the output of `npm run build` locally on your computer, you can run: `npx http-server ./dist/web`)
+(Note: the output uses module scripts, which means you can't just open the output HTML files directly in the browser. You have to use a web server. If you want to test the output of `npm run build` locally on your computer, you can run: `npx http-server ./dist/web/`)
 
 ## Getting the latest version of `cubing.js`
 
