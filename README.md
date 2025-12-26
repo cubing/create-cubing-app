@@ -36,6 +36,8 @@ See <https://github.com/cubing/cubing.js/releases> for information on the latest
 ```shell
 # Check what version of `cubing.js` you have
 npm list cubing
+# Check for the latest version
+npm show cubing version
 
 # Update to the latest
 npm install --save cubing@latest
