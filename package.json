@@ -1,6 +1,6 @@
 {
   "name": "create-cubing-app",
-  "version": "0.61.1",
+  "version": "0.61.3",
   "description": "Create an app using `cubing.js` (https://js.cubing.net/).",
   "author": "The js.cubing.net team",
   "license": "MPL-2.0 OR GPL-3.0-or-later",
