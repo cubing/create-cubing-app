@@ -14,8 +14,17 @@ app-template-build: setup
 
 .PHONY: app-template/node_modules
 app-template/node_modules:
-	# TODO: the `rm -rf ./bun.lock ./bun.lockb` is a workaround for https://github.com/oven-sh/bun/issues/16965
-	cd app-template && bun install --no-save && rm -f ./bun.lock ./bun.lockb
+	# We want to use `bun` to install dependencies here because it's literally 30×
+	# faster than `npm install`. However, we don't want a `bun` lockfile in the
+	# template. So we use use `bun install --no-save`.
+	#
+	# TODO: the `rm -rf ./bun.lock ./bun.lockb` is a workaround for a `bun` issue
+	# where it ignores `--no-save` in some cases:
+	# https://github.com/oven-sh/bun/issues/16965
+	#
+	# In theory this means `--no-save` is doing nothing for us, but it's left here
+	# because it's semantically the correct call (and will hopefully work some day).
+	cd ./app-template/ && bun install --no-save && rm -f ./bun.lock ./bun.lockb
 
 .PHONY: setup
 setup: app-template/node_modules
