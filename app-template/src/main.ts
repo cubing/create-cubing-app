@@ -14,7 +14,7 @@ class App {
     new TwistyAlgViewer({ twistyPlayer: this.twistyPlayer }),
   );
   constructor() {
-    this.updateScramble();
+    void this.updateScramble();
   }
 
   async updateScramble() {

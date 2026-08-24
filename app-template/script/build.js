@@ -8,7 +8,7 @@ export const COMMON_BUILD_OPTIONS = {
 };
 
 if (process.argv.at(-1) === "--dev") {
-  barelyServe(COMMON_BUILD_OPTIONS);
+  await barelyServe(COMMON_BUILD_OPTIONS);
 } else {
   const outDir = "./dist/web";
   await barelyServe({
