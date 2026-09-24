@@ -1,5 +1,6 @@
 import { exit } from "node:process";
 import { $, fileURLToPath } from "bun";
+import { PrintableShellCommand } from "printable-shell-command";
 
 if ((await $`git status --porcelain`).stdout.toString().trim()) {
   console.error("git status must be clean.");
@@ -24,4 +25,4 @@ await $`git commit --all --message "v${version}"`;
 await $`git push`;
 await $`git tag "v${version}"`;
 await $`git push origin "v${version}"`;
-await $`npm publish`;
+await new PrintableShellCommand("npm", ["publish"]).spawnPassthrough().success;

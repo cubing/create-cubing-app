@@ -21,6 +21,7 @@
     "@types/bun": "^1.3.5",
     "@types/validate-npm-package-name": "^4.0.2",
     "bun-dx": "^0.1.4",
+    "printable-shell-command": "^5.3.1",
     "validate-npm-package-name": "^5.0.0"
   },
   "files": [
